@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DailyDo — Everything in your head, in one place</title>
+<meta name="description" content="DailyDo is the fastest way to capture anything — tasks, notes, links, timers, and documents — and keep it synced privately across your Apple devices.">
+<link rel="icon" href="dailydo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --canvas:#FBF8F3; --surface:#FFFFFF; --ink:#1F1B16; --muted:#7A7168;
+    --line:rgba(31,27,22,.09);
+    --g1:#F5A623; --g2:#F0426E; --g3:#8B5CF6;
+    --grad:linear-gradient(120deg,var(--g1) 0%,var(--g2) 52%,var(--g3) 100%);
+    --display:"Bricolage Grotesque",ui-serif,Georgia,serif;
+    --body:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    margin:0; background:var(--canvas); color:var(--ink);
+    font-family:var(--body); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  /* faint paper grain */
+  body::before {
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5;
+    background-image:radial-gradient(rgba(31,27,22,.035) 1px, transparent 1px);
+    background-size:22px 22px;
+  }
+  .wrap { position:relative; z-index:1; max-width:860px; margin:0 auto; padding:44px 24px 90px; }
+  a { color:var(--g2); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+
+  nav { display:flex; justify-content:space-between; align-items:center; font-size:14px; }
+  nav .brand { display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:600; font-size:17px; letter-spacing:.2px; color:var(--ink); }
+  nav .brand img { width:28px; height:28px; border-radius:7px; box-shadow:0 2px 8px rgba(31,27,22,.14); }
+  nav .links a { margin-left:20px; color:var(--muted); font-weight:500; }
+
+  .hero { text-align:center; padding:72px 0 8px; }
+  .kicker {
+    display:inline-block; font-size:12px; letter-spacing:3.5px; text-transform:uppercase;
+    color:var(--muted); font-weight:600;
+  }
+  h1 {
+    font-family:var(--display); font-size:clamp(40px,7vw,64px); font-weight:600;
+    line-height:1.04; letter-spacing:-1px; margin:18px auto 18px; max-width:780px;
+  }
+  h1 .shine {
+    background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .lead { font-size:19px; color:#4a443d; max-width:560px; margin:0 auto; }
+
+  .cta-row { text-align:center; margin:34px 0 10px; }
+  .cta {
+    position:relative; display:inline-block; color:#fff; font-weight:600; font-size:16px;
+    padding:15px 32px; border-radius:999px; background:var(--ink);
+    box-shadow:0 14px 30px rgba(31,27,22,.18); transition:transform .18s ease, box-shadow .18s ease;
+    overflow:hidden;
+  }
+  .cta::after {
+    content:""; position:absolute; inset:0; background:var(--grad); opacity:0; transition:opacity .25s ease;
+  }
+  .cta span { position:relative; z-index:1; }
+  .cta:hover { text-decoration:none; transform:translateY(-2px); box-shadow:0 18px 38px rgba(240,66,110,.28); }
+  .cta:hover::after { opacity:1; }
+  .cta-note { font-size:13px; color:var(--muted); margin:14px 0 0; }
+
+  /* ------- live capture demo ------- */
+  .demo { margin:60px auto 0; max-width:600px; }
+  .demo-label { text-align:center; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:14px; }
+  .capture {
+    position:relative; background:var(--surface); border:1px solid var(--line); border-radius:20px;
+    padding:20px 22px; box-shadow:0 24px 50px rgba(31,27,22,.07);
+  }
+  .capture::before {
+    content:""; position:absolute; inset:-1px; border-radius:21px; padding:1.5px;
+    background:var(--grad); -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude; opacity:.55;
+  }
+  .capture .typed {
+    font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:16px; min-height:26px; color:var(--ink);
+    word-break:break-word;
+  }
+  .capture .caret {
+    display:inline-block; width:2px; height:19px; vertical-align:-3px; margin-left:1px;
+    background:var(--g2); animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity:0; } }
+  .result {
+    display:flex; align-items:center; gap:10px; margin-top:16px; padding-top:16px;
+    border-top:1px dashed var(--line); opacity:0; transform:translateY(6px);
+    transition:opacity .4s ease, transform .4s ease; min-height:34px;
+  }
+  .result.show { opacity:1; transform:none; }
+  .chip {
+    display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600;
+    padding:5px 12px; border-radius:999px; color:#fff; background:var(--ink); white-space:nowrap;
+  }
+  .chip.task  { background:linear-gradient(120deg,#F5A623,#F0426E); }
+  .chip.link  { background:linear-gradient(120deg,#F0426E,#8B5CF6); }
+  .chip.note  { background:linear-gradient(120deg,#8B5CF6,#F5A623); }
+  .chip.timer { background:linear-gradient(120deg,#F0426E,#F5A623); }
+  .result .meta { font-size:13.5px; color:var(--muted); }
+
+  /* ------- features ------- */
+  .features { display:grid; grid-template-columns:1fr; gap:16px; margin:80px 0 0; }
+  @media (min-width:640px){ .features { grid-template-columns:1fr 1fr; } }
+  .card {
+    background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:26px 26px 24px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover { transform:translateY(-3px); box-shadow:0 18px 36px rgba(31,27,22,.08); }
+  .card .dot { width:34px; height:34px; border-radius:10px; background:var(--grad); opacity:.92;
+    display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+  .card .dot svg { width:18px; height:18px; stroke:#fff; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .card h3 { font-family:var(--display); margin:0 0 6px; font-size:19px; font-weight:600; letter-spacing:-.2px; }
+  .card p { margin:0; font-size:15px; color:var(--muted); }
+
+  .privacy-band {
+    margin:80px 0 0; text-align:center; background:var(--ink); color:var(--canvas);
+    border-radius:26px; padding:52px 32px;
+  }
+  .privacy-band h2 { font-family:var(--display); font-size:30px; font-weight:600; margin:0 0 12px; letter-spacing:-.4px; }
+  .privacy-band p { max-width:520px; margin:0 auto; color:rgba(251,248,243,.75); font-size:16px; }
+  .privacy-band a { color:#fff; text-decoration:underline; text-decoration-color:rgba(255,255,255,.4); }
+
+  hr { border:none; border-top:1px solid var(--line); margin:64px 0 28px; }
+  footer { text-align:center; font-size:13px; color:var(--muted); }
+  footer a { color:var(--muted); }
+
+  /* staggered load reveal */
+  .reveal { opacity:0; transform:translateY(14px); animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards; }
+  .reveal.d1 { animation-delay:.08s; } .reveal.d2 { animation-delay:.18s; }
+  .reveal.d3 { animation-delay:.3s; }  .reveal.d4 { animation-delay:.44s; }
+  @keyframes rise { to { opacity:1; transform:none; } }
+  @media (prefers-reduced-motion:reduce){ .reveal { animation:none; opacity:1; transform:none; } .caret{animation:none;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="reveal">
+    <span class="brand"><img src="dailydo.png" alt="">DailyDo</span>
+    <span class="links">
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </span>
+  </nav>
+
+  <header class="hero">
+    <div class="kicker reveal d1">Capture first, organize never</div>
+    <h1 class="reveal d2">Everything in your head,<br><span class="shine">in one place.</span></h1>
+    <p class="lead reveal d3">Type it, paste it, say it, or share it — DailyDo instantly turns it into the right thing: a task with a reminder, a note, a link, a timer, or a document. Synced privately across iPhone, iPad, and Mac.</p>
+  </header>
+
+  <div class="cta-row reveal d4">
+    <a class="cta" href="#" target="_blank" rel="noopener"><span>Download on the App Store</span></a>
+    <p class="cta-note">For iPhone, iPad, and Mac · Free</p>
+  </div>
+
+  <section class="demo reveal d4" aria-label="Smart capture demo">
+    <div class="demo-label">Watch it think</div>
+    <div class="capture">
+      <div class="typed"><span id="typed"></span><span class="caret"></span></div>
+      <div class="result" id="result">
+        <span class="chip" id="chip"></span>
+        <span class="meta" id="meta"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="card">
+      <div class="dot"><svg viewBox="0 0 24 24"><path d="M13 2 5 13h6l-1 9 8-11h-6l1-9z"/></svg></div>
+      <h3>One box for everything</h3>
+      <p>Tasks, notes, links, timers, documents, and prompts live together — no more deciding which app a thought belongs to.</p>
+    </div>
+    <div class="card">
+      <div class="dot"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg></div>
+      <h3>Capture from anywhere</h3>
+      <p>Share into DailyDo from any app, paste from the clipboard, or use the widget — it lands sorted, titled, and ready.</p>
+    </div>
+    <div class="card">
+      <div class="dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg></div>
+      <h3>Reminders that hold the line</h3>
+      <p>Due-time alarms, snooze and mark-done right from the notification, and multi-stage timers for anything you're timing.</p>
+    </div>
+    <div class="card">
+      <div class="dot"><svg viewBox="0 0 24 24"><path d="M4 7V5a1 1 0 0 1 1-1h2M4 17v2a1 1 0 0 0 1 1h2M20 7V5a1 1 0 0 0-1-1h-2M20 17v2a1 1 0 0 1-1 1h-2"/><path d="M8 12h8"/></svg></div>
+      <h3>Scan, snap, and speak</h3>
+      <p>Scan documents with automatic text recognition, snap photos, record voice memos with transcription — all attached to your items.</p>
+    </div>
+    <div class="card">
+      <div class="dot"><svg viewBox="0 0 24 24"><path d="M9 12.5 11 15l4.5-5.5"/><rect x="3.5" y="4" width="17" height="16" rx="4"/></svg></div>
+      <h3>Checklists &amp; sharing</h3>
+      <p>Break notes and tasks into checklists, and share a live link so someone else can follow along.</p>
+    </div>
+    <div class="card">
+      <div class="dot"><svg viewBox="0 0 24 24"><path d="M12 21c-4.5-3.5-8-6.6-8-10.5A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 8 4.5c0 3.9-3.5 7-8 10.5z"/></svg></div>
+      <h3>Private by architecture</h3>
+      <p>No account. No analytics. Your data lives on your devices and in your own private iCloud — we couldn't read it if we wanted to.</p>
+    </div>
+  </section>
+
+  <section class="privacy-band">
+    <h2>Your data never meets our servers.</h2>
+    <p>DailyDo has no sign-up, no tracking, and no backend. Everything you capture is stored on-device and synced through your personal, end-to-end Apple iCloud account. Read the <a href="privacy.html">privacy policy</a> — it's short, because there's not much to disclose.</p>
+  </section>
+
+  <hr>
+  <footer>
+    <p>© 2026 Francesco Bertocci LLC · <a href="support.html">Support</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a> · <a href="mailto:fbmore+dailydo@gmail.com">Contact</a></p>
+  </footer>
+</div>
+
+<script>
+  // Smart-capture demo: types real inputs, then shows what DailyDo turns them into.
+  const SAMPLES = [
+    { text:"pick up prescription tomorrow at 5pm", chip:"Task", cls:"task",  meta:"Reminder set · tomorrow 5:00 PM" },
+    { text:"https://en.wikipedia.org/wiki/Deep_work", chip:"Link", cls:"link",  meta:"Title fetched · “Deep work — Wikipedia”" },
+    { text:"ideas for dad's birthday — cooking class, vinyl, that trattoria downtown…", chip:"Note", cls:"note", meta:"Titled automatically · “Dad's birthday ideas”" },
+    { text:"pasta 11 minutes", chip:"Timer", cls:"timer", meta:"Ready to start · 11:00" },
+  ];
+  const typed = document.getElementById('typed');
+  const result = document.getElementById('result');
+  const chip = document.getElementById('chip');
+  const meta = document.getElementById('meta');
+  let s = 0;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function run() {
+    const sample = SAMPLES[s];
+    let i = 0;
+    result.classList.remove('show');
+    typed.textContent = "";
+    if (reduced) {
+      typed.textContent = sample.text; show(sample);
+      setTimeout(next, 4200); return;
+    }
+    const t = setInterval(() => {
+      typed.textContent = sample.text.slice(0, ++i);
+      if (i >= sample.text.length) { clearInterval(t); setTimeout(() => { show(sample); setTimeout(next, 3400); }, 420); }
+    }, 34);
+  }
+  function show(sample) {
+    chip.textContent = sample.chip; chip.className = "chip " + sample.cls;
+    meta.textContent = sample.meta; result.classList.add('show');
+  }
+  function next() { s = (s + 1) % SAMPLES.length; run(); }
+  run();
+</script>
+</body>
+</html>

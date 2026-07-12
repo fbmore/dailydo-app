@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DailyDo — Privacy Policy</title>
+<link rel="icon" href="dailydo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --canvas:#FBF8F3; --surface:#FFFFFF; --ink:#1F1B16; --muted:#7A7168; --line:rgba(31,27,22,.09);
+    --g1:#F5A623; --g2:#F0426E; --g3:#8B5CF6;
+    --grad:linear-gradient(120deg,var(--g1),var(--g2),var(--g3));
+    --display:"Bricolage Grotesque",ui-serif,Georgia,serif;
+    --body:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--canvas); color:var(--ink); font-family:var(--body); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:720px; margin:0 auto; padding:44px 24px 96px; }
+  nav { font-size:14px; }
+  nav a { color:var(--muted); text-decoration:none; font-weight:500; }
+  nav a:hover { text-decoration:underline; }
+  .kicker { font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); font-weight:600; margin-top:36px; }
+  h1 { font-family:var(--display); font-size:42px; font-weight:600; letter-spacing:-.6px; margin:8px 0 4px; }
+  h2 { font-family:var(--display); font-size:22px; font-weight:600; letter-spacing:-.2px; margin:40px 0 8px; }
+  p, li { font-size:16.5px; color:#3d3830; }
+  .muted { color:var(--muted); font-size:14px; }
+  a { color:var(--g2); }
+  .lead { font-size:19px; }
+  hr { border:none; border-top:1px solid var(--line); margin:40px 0; }
+  .pill { display:inline-block; background:var(--grad); color:#fff; font-size:11px; letter-spacing:1px; text-transform:uppercase; font-weight:600; padding:4px 12px; border-radius:999px; }
+  code { font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:.88em; background:rgba(31,27,22,.05); padding:2px 6px; border-radius:6px; }
+  footer { margin-top:56px; font-size:13px; color:var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><a href="index.html">← DailyDo</a></nav>
+  <div class="kicker">DailyDo</div>
+  <h1>Privacy Policy</h1>
+  <p class="muted">Last updated: 11 July 2026</p>
+
+  <p class="lead">DailyDo is built so that your tasks, notes, and documents stay yours. The app has no accounts, no analytics, and no servers of its own. Your data lives on your devices and, if you use iCloud, in your own private iCloud account — the developer never sees it.</p>
+
+  <p><span class="pill">In short</span> &nbsp;No sign-up. No tracking. No ads. No third-party analytics. Nothing you capture is ever sent to the developer.</p>
+
+  <hr>
+
+  <h2>What DailyDo stores</h2>
+  <p>Everything you create in DailyDo — tasks, notes, links, timers, prompts, checklists, tags, and attached documents, photos, scans, and voice recordings — is stored <strong>locally on your device</strong>.</p>
+  <p>If you are signed in to iCloud, DailyDo also syncs this data to <strong>your own private iCloud account</strong> (Apple's CloudKit private database) so it stays up to date across your iPhone, iPad, and Mac, and is restored if you reinstall the app. This is the same private iCloud storage your other apps use. The developer of DailyDo has no access to it, and none of it is ever placed in a public database.</p>
+
+  <h2>On-device intelligence</h2>
+  <p>DailyDo's smart features run <strong>on your device</strong> using Apple's built-in frameworks:</p>
+  <ul>
+    <li><strong>Smart capture</strong> — detecting whether text is a task, note, link, or timer, and pulling out dates and times.</li>
+    <li><strong>Note titling</strong> — summarizing long text into a short title.</li>
+    <li><strong>Document scanning &amp; OCR</strong> — recognizing text in scans and photos.</li>
+    <li><strong>Voice transcription</strong> — converting recordings to text using Apple's Speech framework. Depending on your device and language settings, Apple may process speech on-device or on Apple's servers under <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy terms</a>.</li>
+  </ul>
+
+  <h2>Network requests the app makes</h2>
+  <p>DailyDo contacts the internet in only three situations:</p>
+  <ul>
+    <li><strong>iCloud sync</strong> — your data travels between your devices through Apple's iCloud, encrypted in transit, tied to your Apple Account.</li>
+    <li><strong>Link titles</strong> — when you save a URL, DailyDo fetches that webpage once to read its title. This request goes directly from your device to the website you saved, like opening it in a browser. No intermediary service is involved.</li>
+    <li><strong>Podcasts &amp; feeds</strong> — if you follow a podcast or feed, DailyDo downloads episodes and updates directly from the publisher's servers you chose. Those requests go from your device to the publisher, subject to the publisher's own privacy practices.</li>
+  </ul>
+
+  <h2>What we do <em>not</em> collect</h2>
+  <ul>
+    <li>No account, name, email, or phone number is required or collected.</li>
+    <li>No analytics, usage tracking, crash reporting, or advertising SDKs of any kind.</li>
+    <li>No location data.</li>
+    <li>No data is sent to the developer or to any third-party server.</li>
+  </ul>
+
+  <h2>Permissions, only when needed</h2>
+  <p>DailyDo asks for permissions contextually, the first time a feature needs them — notifications when you set a reminder, camera when you scan or snap, microphone and speech recognition when you record or dictate, photo library when you attach a photo, contacts when you link a contact to an item. You can use the app fully without granting any of them; only the related feature is unavailable.</p>
+
+  <h2>Sharing</h2>
+  <p>When you share an item or checklist from DailyDo, the app packages the content into the link itself and hands it to the system share sheet — there is no server hosting your shared content, and nothing is uploaded anywhere. What you share, and with whom, is entirely in your control; the developer is not part of that exchange.</p>
+
+  <h2>Children's privacy</h2>
+  <p>DailyDo is not directed at children under 13 and does not knowingly collect any personal information from them.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy changes, the updated version will be posted on this page with a new "last updated" date.</p>
+
+  <h2>Contact</h2>
+  <p>DailyDo is operated by <strong>Francesco Bertocci LLC</strong>. Questions about privacy or your data? Email <a href="mailto:fbmore+dailydo@gmail.com">fbmore+dailydo@gmail.com</a>.</p>
+
+  <footer>© 2026 Francesco Bertocci LLC. This policy describes the DailyDo app for iPhone, iPad, and Mac.</footer>
+</div>
+</body>
+</html>

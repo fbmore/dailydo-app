@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DailyDo — Support</title>
+<link rel="icon" href="dailydo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --canvas:#FBF8F3; --surface:#FFFFFF; --ink:#1F1B16; --muted:#7A7168; --line:rgba(31,27,22,.09);
+    --g1:#F5A623; --g2:#F0426E; --g3:#8B5CF6;
+    --grad:linear-gradient(120deg,var(--g1),var(--g2),var(--g3));
+    --display:"Bricolage Grotesque",ui-serif,Georgia,serif;
+    --body:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--canvas); color:var(--ink); font-family:var(--body); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:720px; margin:0 auto; padding:44px 24px 96px; }
+  nav { font-size:14px; }
+  nav a { color:var(--muted); text-decoration:none; font-weight:500; }
+  nav a:hover { text-decoration:underline; }
+  .kicker { font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); font-weight:600; margin-top:36px; }
+  h1 { font-family:var(--display); font-size:42px; font-weight:600; letter-spacing:-.6px; margin:8px 0 16px; }
+  h2 { font-family:var(--display); font-size:19px; font-weight:600; margin:34px 0 6px; }
+  p, li { font-size:16px; color:#3d3830; }
+  a { color:var(--g2); }
+  .muted { color:var(--muted); }
+  .card { position:relative; background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:26px 28px; margin-top:24px; box-shadow:0 18px 40px rgba(31,27,22,.06); }
+  .card::before {
+    content:""; position:absolute; inset:-1px; border-radius:21px; padding:1.5px;
+    background:var(--grad); -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude; opacity:.45;
+  }
+  hr { border:none; border-top:1px solid var(--line); margin:40px 0; }
+  footer { margin-top:48px; font-size:13px; color:var(--muted); }
+  footer a { color:var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><a href="index.html">← DailyDo</a></nav>
+  <div class="kicker">DailyDo</div>
+  <h1>Support</h1>
+
+  <div class="card">
+    <p style="margin:0;">Need help, found a bug, or have a feature idea? Email us at<br>
+    <a href="mailto:fbmore+dailydo@gmail.com">fbmore+dailydo@gmail.com</a> — we read every message.</p>
+    <p class="muted" style="margin:12px 0 0; font-size:14px;">Include your app version (Settings → About) and device model to help us help you faster.</p>
+  </div>
+
+  <h2>Getting started</h2>
+  <p>Tap the <strong>+</strong> button and just type — DailyDo figures out whether you're writing a task, a note, a link, or a timer, and files it accordingly. You can always change the type before saving.</p>
+
+  <h2>Capturing from other apps</h2>
+  <p>Use the system share sheet from any app (Safari, Photos, Mail…) and choose <strong>DailyDo</strong>. Links arrive with their titles, images and files arrive as documents, and text is analyzed the same way as in-app capture.</p>
+
+  <h2>Reminders aren't firing</h2>
+  <ul>
+    <li>Check that notifications are allowed: Settings → Notifications → DailyDo.</li>
+    <li>Make sure Focus modes aren't silencing the app.</li>
+    <li>Tasks need a due <em>time</em> (not just a date) to trigger an alert.</li>
+  </ul>
+
+  <h2>My items aren't syncing across devices</h2>
+  <p>DailyDo syncs through your private iCloud. Make sure all devices are signed in to the same Apple Account with iCloud Drive enabled (Settings → [your name] → iCloud). Sync happens automatically in the background, usually within seconds; large attachments can take longer on slow connections.</p>
+
+  <h2>Scanning, photos, and voice notes</h2>
+  <p>The first time you scan a document, take a photo, or record a voice note, iOS asks for camera or microphone permission. If you declined and want to enable it later: Settings → Privacy &amp; Security → Camera / Microphone → DailyDo. Voice recordings are transcribed automatically; transcription quality depends on your device's language settings.</p>
+
+  <h2>Privacy</h2>
+  <p>Your data stays on your devices and in your own private iCloud — there's no account and no analytics. See the <a href="privacy.html">Privacy Policy</a> for details.</p>
+
+  <hr>
+  <footer>© 2026 Francesco Bertocci LLC · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></footer>
+</div>
+</body>
+</html>
