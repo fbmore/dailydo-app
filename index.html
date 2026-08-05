@@ -79,7 +79,7 @@
   /* accent picker */
   .paint { text-align:center; margin:34px 0 0; }
   .paint .label { font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:12px; }
-  .dots { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; max-width:420px; margin:0 auto; }
+  .dots { display:grid; grid-template-columns:repeat(6, 26px); gap:12px 14px; justify-content:center; margin:0 auto; }
   .dots button {
     width:26px; height:26px; border-radius:50%; border:none; cursor:pointer; padding:0;
     background:var(--c); transition:transform .15s ease; outline-offset:3px;
