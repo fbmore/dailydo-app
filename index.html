@@ -88,30 +88,70 @@
   .dots button.on { outline:2.5px solid var(--ink); transform:scale(1.18); }
   .paint .hint { font-size:13px; color:var(--muted); margin-top:12px; }
 
-  /* live capture demo */
-  .demo { margin:56px auto 0; max-width:600px; }
   .demo-label, .sec-label { text-align:center; font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:14px; }
-  .capture {
-    position:relative; background:var(--surface); border:1px solid var(--line); border-radius:20px;
-    padding:20px 22px; box-shadow:var(--shadow);
-  }
-  .capture::before {
-    content:""; position:absolute; inset:-1px; border-radius:21px; padding:1.5px;
-    background:linear-gradient(120deg, var(--acc), transparent 60%);
-    -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite:xor; mask-composite:exclude; opacity:.6;
-  }
-  .capture .typed { font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:16px; min-height:26px; word-break:break-word; }
-  .capture .caret { display:inline-block; width:2px; height:19px; vertical-align:-3px; margin-left:1px; background:var(--acc); animation:blink 1s steps(1) infinite; }
   @keyframes blink { 50% { opacity:0; } }
-  .result {
-    display:flex; align-items:center; gap:10px; margin-top:16px; padding-top:16px;
-    border-top:1px dashed var(--line); opacity:0; transform:translateY(6px);
-    transition:opacity .4s ease, transform .4s ease; min-height:34px;
-  }
-  .result.show { opacity:1; transform:none; }
   .chip { display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600; padding:5px 12px; border-radius:999px; color:#fff; background:var(--acc); white-space:nowrap; }
-  .result .meta { font-size:13.5px; color:var(--muted); }
+
+  /* ------- vector phone (mimics the real app UI) ------- */
+  .vphone {
+    width:300px; height:620px; justify-self:center; border-radius:44px; background:#050505;
+    padding:10px; border:1px solid var(--line); box-shadow:var(--shadow); position:relative; flex:none;
+  }
+  .vphone .island { position:absolute; top:22px; left:50%; transform:translateX(-50%); width:84px; height:22px; background:#000; border-radius:99px; z-index:5; }
+  .vscreen {
+    width:100%; height:100%; border-radius:34px; background:var(--canvas); overflow:hidden;
+    display:flex; flex-direction:column; position:relative;
+  }
+  .vst { display:flex; justify-content:space-between; align-items:center; padding:16px 22px 6px; font-size:12.5px; font-weight:600; color:var(--ink); }
+  .vst svg { width:38px; height:11px; }
+  .vsheet {
+    flex:1; margin:8px 10px 10px; border-radius:24px; background:var(--surface);
+    border:1px solid var(--line); padding:16px 14px 12px; display:flex; flex-direction:column; gap:12px;
+  }
+  .vsheet .vtitle { display:flex; justify-content:space-between; align-items:center; font-family:var(--display); font-size:19px; font-weight:600; color:var(--ink); }
+  .vsheet .vtitle .x { width:22px; height:22px; border-radius:50%; border:1.4px solid var(--muted); color:var(--muted); font-size:12px; display:flex; align-items:center; justify-content:center; font-family:var(--body); font-weight:400; }
+  .vinput {
+    border:1.4px solid var(--acc); border-radius:14px; min-height:118px; padding:10px 12px;
+    font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:12.5px; line-height:1.5;
+    color:var(--ink); word-break:break-word;
+  }
+  .vinput .ph { color:var(--muted); }
+  .vinput .caret { display:inline-block; width:1.5px; height:14px; vertical-align:-2px; margin-left:1px; background:var(--acc); animation:blink 1s steps(1) infinite; }
+  .vdetect { display:flex; align-items:center; gap:8px; min-height:30px; flex-wrap:wrap; }
+  .vdetect .chip { opacity:0; transform:translateY(5px); transition:opacity .35s ease, transform .35s ease; font-size:11.5px; padding:4px 11px; }
+  .vdetect .meta { opacity:0; transition:opacity .35s ease .1s; font-size:11px; color:var(--muted); }
+  .vdetect.show .chip, .vdetect.show .meta { opacity:1; transform:none; }
+  .vbtns { display:flex; gap:12px; margin-top:auto; }
+  .vbtns .vb {
+    width:44px; height:44px; border-radius:50%; border:1px solid var(--line); background:var(--canvas);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .vbtns .vb svg { width:18px; height:18px; stroke:var(--acc); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .vbtns .vb.hot { background:var(--acc-soft); border-color:var(--acc); }
+  .vtabbar {
+    display:flex; justify-content:space-between; align-items:center; margin:0 10px 12px; padding:7px 9px;
+    border-radius:18px; background:var(--surface); border:1px solid var(--line);
+  }
+  .vtabbar .vt { display:flex; flex-direction:column; align-items:center; gap:3px; font-size:8.5px; font-weight:600; color:var(--muted); padding:5px 10px; border-radius:12px; }
+  .vtabbar .vt svg { width:15px; height:15px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .vtabbar .vt.on { background:var(--acc-soft); color:var(--acc); }
+
+  /* voice mode phone */
+  .vvoice { flex:1; margin:8px 10px 10px; border-radius:24px; background:var(--surface); border:1px solid var(--line); padding:18px 16px 16px; display:flex; flex-direction:column; align-items:center; gap:14px; }
+  .vvoice .vtitle2 { font-family:var(--display); font-size:17px; font-weight:600; color:var(--ink); }
+  .vmic { width:74px; height:74px; border-radius:50%; background:var(--acc); display:flex; align-items:center; justify-content:center; position:relative; margin-top:6px; }
+  .vmic svg { width:30px; height:30px; stroke:#fff; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .vmic::after { content:""; position:absolute; inset:-9px; border-radius:50%; border:2px solid var(--acc); opacity:.45; animation:pulse 1.6s ease-out infinite; }
+  @keyframes pulse { 0% { transform:scale(.85); opacity:.5; } 100% { transform:scale(1.25); opacity:0; } }
+  .wave { display:flex; align-items:center; gap:3.5px; height:34px; margin-top:4px; }
+  .wave i { width:3.5px; border-radius:2px; background:var(--acc); animation:weq 1s ease-in-out infinite; }
+  @keyframes weq { 0%,100% { height:22%; } 50% { height:100%; } }
+  .vtranscript { font-size:12.5px; line-height:1.65; color:var(--ink); text-align:center; min-height:84px; padding:0 6px; }
+  .vtranscript span { opacity:0; }
+  .vtranscript span.w { opacity:1; transition:opacity .25s ease; }
+  .vres { display:flex; align-items:center; gap:8px; min-height:30px; opacity:0; transform:translateY(5px); transition:opacity .35s ease, transform .35s ease; }
+  .vres.show { opacity:1; transform:none; }
+  .vres .meta { font-size:11px; color:var(--muted); }
 
   /* feature rows with real screenshots */
   .feat { display:grid; grid-template-columns:1fr 300px; gap:44px; align-items:center; padding:72px 0; border-top:1px solid var(--line); }
@@ -222,19 +262,81 @@
     <p class="hint">Twelve accent colors, light and dark — this page follows along, and so does the app.</p>
   </div>
 
-  <section class="demo reveal d4" aria-label="Smart capture demo">
-    <div class="demo-label">Watch it think</div>
-    <div class="capture">
-      <div class="typed"><span id="typed"></span><span class="caret"></span></div>
-      <div class="result" id="result">
-        <span class="chip" id="chip"></span>
-        <span class="meta" id="meta"></span>
+  <!-- ============ lead demo: quick create in a vector phone ============ -->
+  <section class="feat" id="tour" style="margin-top:64px; border-top:none; padding-top:40px">
+    <div class="copy">
+      <div class="demo-label" style="text-align:left; margin-bottom:10px">Watch it think</div>
+      <h2>One box. Zero filing.</h2>
+      <p>This is Quick Create — the box the app opens with. Type anything and DailyDo recognizes what it is, titles it, and files it for you.</p>
+      <ul class="bul">
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Dates become reminders, URLs become bookmarks, feeds become podcasts</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Paste, attach, or dictate — same box, same smarts</li>
+      </ul>
+    </div>
+    <div class="vphone" aria-label="Quick Create demo">
+      <div class="island"></div>
+      <div class="vscreen">
+        <div class="vst"><span>9:41</span><svg viewBox="0 0 38 11" fill="none" stroke="currentColor" stroke-width="1"><rect x="0" y="2" width="1.8" height="7" rx=".9" fill="currentColor"/><rect x="3.4" y="1" width="1.8" height="8" rx=".9" fill="currentColor"/><rect x="6.8" y="0" width="1.8" height="9" rx=".9" fill="currentColor"/><path d="M14 4c2.5-2.3 6.5-2.3 9 0M15.8 6.2c1.5-1.4 3.9-1.4 5.4 0M18.5 8.4l.9-.8" stroke-width="1.4"/><rect x="27" y="1.5" width="9.5" height="7" rx="2.2"/><rect x="28.2" y="2.7" width="6" height="4.6" rx="1.1" fill="currentColor" stroke="none"/></svg></div>
+        <div class="vsheet">
+          <div class="vtitle">How can I help?<span class="x">✕</span></div>
+          <div class="vinput"><span id="vtyped"></span><span class="caret"></span></div>
+          <div class="vdetect" id="vdetect">
+            <span class="chip" id="vchip"></span>
+            <span class="meta" id="vmeta"></span>
+          </div>
+          <div class="vbtns">
+            <div class="vb"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+            <div class="vb"><svg viewBox="0 0 24 24"><path d="m21.4 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg></div>
+            <div class="vb hot"><svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></div>
+          </div>
+        </div>
+        <div class="vtabbar">
+          <span class="vt on"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>New</span>
+          <span class="vt"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>DailyDo</span>
+          <span class="vt"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>Search</span>
+          <span class="vt"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>View All</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ voice mode ============ -->
+  <section class="feat flip">
+    <div class="copy">
+      <div class="demo-label" style="text-align:left; margin-bottom:10px">Or just say it</div>
+      <h2>Voice in, sorted out.</h2>
+      <p>Tap the mic and talk. DailyDo transcribes on-device as you speak, then files the thought exactly like typed text — task, note, or reminder.</p>
+      <ul class="bul">
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Live transcription with automatic titles</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Voice memos keep the audio and the text, side by side</li>
+      </ul>
+    </div>
+    <div class="vphone" aria-label="Voice dictation demo">
+      <div class="island"></div>
+      <div class="vscreen">
+        <div class="vst"><span>9:41</span><svg viewBox="0 0 38 11" fill="none" stroke="currentColor" stroke-width="1"><rect x="0" y="2" width="1.8" height="7" rx=".9" fill="currentColor"/><rect x="3.4" y="1" width="1.8" height="8" rx=".9" fill="currentColor"/><rect x="6.8" y="0" width="1.8" height="9" rx=".9" fill="currentColor"/><path d="M14 4c2.5-2.3 6.5-2.3 9 0M15.8 6.2c1.5-1.4 3.9-1.4 5.4 0M18.5 8.4l.9-.8" stroke-width="1.4"/><rect x="27" y="1.5" width="9.5" height="7" rx="2.2"/><rect x="28.2" y="2.7" width="6" height="4.6" rx="1.1" fill="currentColor" stroke="none"/></svg></div>
+        <div class="vvoice">
+          <div class="vtitle2">Listening…</div>
+          <div class="vmic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+          <div class="wave" id="vwave"></div>
+          <div class="vtranscript" id="vtranscript"></div>
+          <div class="vres" id="vres">
+            <span class="chip" id="vreschip"></span>
+            <span class="meta" id="vresmeta"></span>
+          </div>
+        </div>
+        <div class="vtabbar">
+          <span class="vt on"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>New</span>
+          <span class="vt"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>DailyDo</span>
+          <span class="vt"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>Search</span>
+          <span class="vt"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>View All</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============ feature rows with real screenshots ============ -->
-  <section class="feat" id="tour" style="margin-top:72px">
+  <section class="feat">
     <div class="copy">
       <h2>Your day, at a glance.</h2>
       <p>Tasks organize themselves into Today, Tomorrow, and Later — with pinned items always on top and reminders that hold the line.</p>
@@ -458,24 +560,24 @@
   });
   applyTheme();
 
-  // ---------- smart-capture demo ----------
+  // ---------- quick-create demo (vector phone) ----------
   const SAMPLES = [
     { text:"pick up prescription tomorrow at 5pm", chip:"Task",  meta:"Reminder set · tomorrow 5:00 PM" },
     { text:"https://en.wikipedia.org/wiki/Deep_work", chip:"Link", meta:"Title fetched · “Deep work — Wikipedia”" },
     { text:"ideas for dad's birthday — cooking class, vinyl, that trattoria downtown…", chip:"Note", meta:"Titled automatically · “Dad's birthday ideas”" },
     { text:"https://feeds.simplecast.com/LU_7w7GU", chip:"Podcast", meta:"Subscribed · “The Rachel Maddow Show”" },
   ];
-  const typed = document.getElementById('typed');
-  const result = document.getElementById('result');
-  const chip = document.getElementById('chip');
-  const meta = document.getElementById('meta');
+  const typed = document.getElementById('vtyped');
+  const detect = document.getElementById('vdetect');
+  const chip = document.getElementById('vchip');
+  const meta = document.getElementById('vmeta');
   let s = 0;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function run() {
     const sample = SAMPLES[s];
     let i = 0;
-    result.classList.remove('show');
+    detect.classList.remove('show');
     typed.textContent = "";
     if (reduced) {
       typed.textContent = sample.text; show(sample);
@@ -489,10 +591,49 @@
   function show(sample) {
     chip.textContent = sample.chip;
     meta.textContent = sample.meta;
-    result.classList.add('show');
+    detect.classList.add('show');
   }
   function next() { s = (s + 1) % SAMPLES.length; run(); }
   run();
+
+  // ---------- voice dictation demo (vector phone) ----------
+  const wave = document.getElementById('vwave');
+  for (let i = 0; i < 14; i++) {
+    const bar = document.createElement('i');
+    bar.style.animationDelay = (i * 0.09) + 's';
+    bar.style.animationDuration = (0.7 + ((i * 7) % 5) * 0.12) + 's';
+    wave.appendChild(bar);
+  }
+  const VOICE = [
+    { words:"remind me to call the pharmacy when I leave work at five", chip:"Task", meta:"Reminder set · today 5:00 PM" },
+    { words:"note to self the garden needs new tomato stakes and basil seedlings", chip:"Note", meta:"Titled · “Garden shopping list”" },
+  ];
+  const vtr = document.getElementById('vtranscript');
+  const vres = document.getElementById('vres');
+  const vreschip = document.getElementById('vreschip');
+  const vresmeta = document.getElementById('vresmeta');
+  let v = 0;
+
+  function runVoice() {
+    const sample = VOICE[v];
+    vres.classList.remove('show');
+    vtr.innerHTML = sample.words.split(' ').map(w => `<span>${w}</span>`).join(' ');
+    const spans = [...vtr.querySelectorAll('span')];
+    if (reduced) {
+      spans.forEach(sp => sp.classList.add('w'));
+      showVoice(sample); setTimeout(nextVoice, 5200); return;
+    }
+    spans.forEach((sp, i) => setTimeout(() => sp.classList.add('w'), 300 + i * 240));
+    const total = 300 + spans.length * 240;
+    setTimeout(() => { showVoice(sample); setTimeout(nextVoice, 3600); }, total + 500);
+  }
+  function showVoice(sample) {
+    vreschip.textContent = sample.chip;
+    vresmeta.textContent = sample.meta;
+    vres.classList.add('show');
+  }
+  function nextVoice() { v = (v + 1) % VOICE.length; runVoice(); }
+  runVoice();
 </script>
 </body>
 </html>
