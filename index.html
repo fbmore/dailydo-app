@@ -70,10 +70,18 @@
     line-height:1.04; letter-spacing:-1px; margin:16px auto 18px; max-width:780px;
   }
   h1 .shine { color:var(--acc); }
+  h1, h2, h3 { text-wrap:balance; }
+  p, li { text-wrap:pretty; }
   .lead { font-size:19px; color:var(--muted); max-width:580px; margin:0 auto; }
 
   .cta-row { text-align:center; margin:32px 0 6px; }
   .cta-row img.badge { height:52px; }
+  .soon {
+    display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border-radius:999px;
+    background:var(--surface); color:var(--ink); font-weight:600; font-size:15px;
+    box-shadow:0 0 0 1px var(--line), 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08);
+  }
+  .soon svg { width:18px; height:18px; fill:currentColor; }
   .cta-note { font-size:13px; color:var(--muted); margin:12px 0 0; }
 
   /* accent picker */
@@ -85,6 +93,11 @@
     background:var(--c); transition:transform .15s ease; outline-offset:3px;
   }
   .dots button:hover { transform:scale(1.18); }
+  /* larger invisible hit areas: dots 38px (half the gaps, no overlap), mode toggle 44px */
+  .dots button { position:relative; }
+  .dots button::after { content:""; position:absolute; inset:-6px; border-radius:50%; }
+  .mode { position:relative; }
+  .mode::after { content:""; position:absolute; inset:-4px; border-radius:14px; }
   .dots button.on { outline:2.5px solid var(--ink); transform:scale(1.18); }
   .paint .hint { font-size:13px; color:var(--muted); margin-top:12px; }
 
@@ -189,8 +202,8 @@
   /* feature cards */
   .features { display:grid; grid-template-columns:1fr; gap:16px; margin:72px 0 0; }
   @media (min-width:640px){ .features { grid-template-columns:1fr 1fr; } }
-  .card { background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:26px 26px 24px; transition:transform .2s ease, box-shadow .2s ease; }
-  .card:hover { transform:translateY(-3px); box-shadow:var(--shadow); }
+  .card { background:var(--surface); border-radius:20px; padding:26px 26px 24px; box-shadow:0 0 0 1px var(--line), 0 1px 2px rgba(0,0,0,.04); transition:transform .15s ease-out, box-shadow .15s ease-out; }
+  .card:hover { transform:translateY(-3px); box-shadow:0 0 0 1px var(--line), var(--shadow); }
   .card .dot { width:34px; height:34px; border-radius:10px; background:var(--acc); display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
   .card .dot svg { width:18px; height:18px; stroke:#fff; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
   .card h3 { font-family:var(--display); margin:0 0 6px; font-size:19px; font-weight:600; letter-spacing:-.2px; }
@@ -206,11 +219,11 @@
   .pricing h2 { font-family:var(--display); font-size:clamp(26px,3.6vw,34px); font-weight:600; margin:0 0 8px; }
   .pricing > p { color:var(--muted); margin:0 auto 34px; max-width:520px; }
   .plans { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; }
-  .plan { background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:24px 26px; width:210px; text-align:left; }
-  .plan.best { border-color:var(--acc); box-shadow:0 0 0 1px var(--acc); position:relative; }
+  .plan { background:var(--surface); box-shadow:0 0 0 1px var(--line), 0 1px 2px rgba(0,0,0,.04); border-radius:18px; padding:24px 26px; width:210px; text-align:left; }
+  .plan.best { box-shadow:0 0 0 2px var(--acc), 0 8px 24px var(--acc-soft); position:relative; }
   .plan.best::after { content:"Best value"; position:absolute; top:-11px; right:14px; font-size:11px; font-weight:600; background:var(--acc); color:#fff; padding:3px 10px; border-radius:99px; }
   .plan .name { font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-weight:600; }
-  .plan .price { font-family:var(--display); font-size:30px; font-weight:600; margin:6px 0 2px; }
+  .plan .price { font-family:var(--display); font-size:30px; font-weight:600; margin:6px 0 2px; font-variant-numeric:tabular-nums; }
   .plan .per { font-size:13px; color:var(--muted); }
   .plan ul { list-style:none; padding:0; margin:14px 0 0; font-size:13.5px; color:var(--muted); display:grid; gap:6px; }
   .fine { font-size:12.5px; color:var(--muted); margin-top:20px; }
@@ -252,8 +265,10 @@
   </header>
 
   <div class="cta-row reveal d4">
-    <a href="#" rel="noopener"><img class="badge" src="appstore-badge.svg" alt="Download on the App Store"></a>
-    <p class="cta-note">For iPhone, iPad, and Mac · Free to start</p>
+    <!-- Swap for the badge once approved:
+    <a href="https://apps.apple.com/app/id6751297766" rel="noopener"><img class="badge" src="appstore-badge.svg" alt="Download on the App Store"></a> -->
+    <span class="soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg>Coming soon to the App Store</span>
+    <p class="cta-note">For iPhone, iPad, and Mac · Free for up to 50 items</p>
   </div>
 
   <div class="paint reveal d4">
@@ -447,13 +462,13 @@
 
   <section class="privacy-band">
     <h2>Your data never meets our servers.</h2>
-    <p>DailyDo has no sign-up, no tracking, and no backend. Everything you capture is stored on-device and synced through your personal Apple iCloud account. Read the <a href="privacy.html">privacy policy</a> — it's short, because there's not much to disclose.</p>
+    <p>DailyDo has no sign-up, no tracking, and no servers of its own. Everything you capture is stored on-device and synced through your personal Apple iCloud account. If you buy Pro, Apple handles the payment and RevenueCat keeps an anonymous receipt. Read the <a href="privacy.html">privacy policy</a>: it's short, because there's not much to disclose.</p>
   </section>
 
   <!-- ============ pricing ============ -->
   <section class="pricing">
     <h2>Free to capture. Pro to go big.</h2>
-    <p>Capture is never blocked. The free plan keeps up to 100 active items; DailyDo&nbsp;Pro removes the cap and funds an indie app with no ads and no data harvesting.</p>
+    <p>Capture is never blocked. The free plan keeps up to 50 active items; DailyDo&nbsp;Pro removes the cap and funds an indie app with no ads and no data harvesting.</p>
     <div class="plans">
       <div class="plan">
         <div class="name">Free</div>
@@ -461,7 +476,7 @@
         <div class="per">forever</div>
         <ul>
           <li>Every capture feature</li>
-          <li>100 active items</li>
+          <li>50 active items</li>
           <li>Private iCloud sync</li>
         </ul>
       </div>
@@ -478,6 +493,7 @@
         <div class="name">Pro yearly</div>
         <div class="price">$24.99</div>
         <div class="per">per year · ~$2.08/mo</div>
+        <div class="per">14-day free trial</div>
         <ul>
           <li>Unlimited active items</li>
           <li>All future Pro features</li>
@@ -493,7 +509,7 @@
         </ul>
       </div>
     </div>
-    <p class="fine">Prices in USD; local pricing may vary. Completed items never count against the free cap.</p>
+    <p class="fine">Prices in USD; local pricing may vary. Completed items never count against the free cap. Subscriptions renew automatically until cancelled in your Apple Account settings.</p>
   </section>
 
   <hr>

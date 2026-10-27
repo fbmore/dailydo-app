@@ -23,12 +23,14 @@
   nav a { color:var(--muted); text-decoration:none; font-weight:500; }
   nav a:hover { text-decoration:underline; }
   .kicker { font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); font-weight:600; margin-top:36px; }
+  h1, h2 { text-wrap:balance; }
+  p, li { text-wrap:pretty; }
   h1 { font-family:var(--display); font-size:42px; font-weight:600; letter-spacing:-.6px; margin:8px 0 16px; }
   h2 { font-family:var(--display); font-size:19px; font-weight:600; margin:34px 0 6px; }
   p, li { font-size:16px; color:#3d3830; }
   a { color:var(--g2); }
   .muted { color:var(--muted); }
-  .card { position:relative; background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:26px 28px; margin-top:24px; box-shadow:0 18px 40px rgba(31,27,22,.06); }
+  .card { position:relative; background:var(--surface); border-radius:20px; padding:26px 28px; margin-top:24px; box-shadow:0 0 0 1px var(--line), 0 1px 2px rgba(31,27,22,.04), 0 18px 40px rgba(31,27,22,.06); }
   .card::before {
     content:""; position:absolute; inset:-1px; border-radius:21px; padding:1.5px;
     background:var(--grad); -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -47,12 +49,12 @@
 
   <div class="card">
     <p style="margin:0;">Need help, found a bug, or have a feature idea? Email us at<br>
-    <a href="mailto:fbmore+dailydo@gmail.com">fbmore+dailydo@gmail.com</a> — we read every message.</p>
+    <a href="mailto:fbmore+dailydo@gmail.com">fbmore+dailydo@gmail.com</a> , we read every message.</p>
     <p class="muted" style="margin:12px 0 0; font-size:14px;">Include your app version (Settings → About) and device model to help us help you faster.</p>
   </div>
 
   <h2>Getting started</h2>
-  <p>Tap the <strong>+</strong> button and just type — DailyDo figures out whether you're writing a task, a note, a link, or a timer, and files it accordingly. You can always change the type before saving.</p>
+  <p>Tap the <strong>+</strong> button and just type. DailyDo figures out whether you're writing a task, a note, a link, or a timer, and files it accordingly. You can always change the type before saving.</p>
 
   <h2>Capturing from other apps</h2>
   <p>Use the system share sheet from any app (Safari, Photos, Mail…) and choose <strong>DailyDo</strong>. Links arrive with their titles, images and files arrive as documents, and text is analyzed the same way as in-app capture.</p>
@@ -65,13 +67,34 @@
   </ul>
 
   <h2>My items aren't syncing across devices</h2>
-  <p>DailyDo syncs through your private iCloud. Make sure all devices are signed in to the same Apple Account with iCloud Drive enabled (Settings → [your name] → iCloud). Sync happens automatically in the background, usually within seconds; large attachments can take longer on slow connections.</p>
+  <ul>
+    <li>Sign in to the <strong>same Apple Account</strong> on every device, with iCloud Drive on: Settings → [your name] → iCloud (Mac: System Settings → [your name] → iCloud).</li>
+    <li>Check that iCloud has free space: Settings → [your name] → iCloud → Manage Account Storage.</li>
+    <li>Open DailyDo on each device once; sync then runs automatically, usually within seconds. Large attachments can take longer on slow connections.</li>
+    <li>If DailyDo shows a sync banner, it explains what's wrong and offers a retry.</li>
+  </ul>
+
+  <h2>DailyDo Pro and purchases</h2>
+  <ul>
+    <li><strong>Free plan:</strong> up to 50 active items. Completed items don't count, and capture is never blocked; you'll see an upgrade prompt when you go over.</li>
+    <li><strong>Upgrade:</strong> Settings → DailyDo Pro. Pro Yearly starts with a 14-day free trial for new subscribers.</li>
+    <li><strong>Pro on another device:</strong> one purchase covers iPhone, iPad and Mac on the same Apple Account. If Pro doesn't appear, open the upgrade screen and tap <strong>Restore Purchases</strong>.</li>
+    <li><strong>Cancel or change a subscription:</strong> Settings → [your name] → Subscriptions → DailyDo, or tap <strong>Manage Subscription</strong> in the app. Cancel at least 24 hours before renewal to avoid the next charge.</li>
+    <li><strong>Refunds</strong> are handled by Apple: <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.</li>
+    <li>If Pro ends, nothing is deleted: every item stays readable and editable.</li>
+  </ul>
+
+  <h2>DailyDo on Mac</h2>
+  <p>Download DailyDo from the Mac App Store and sign in with the same Apple Account as your iPhone. Your items, tags and attachments sync through iCloud, and Pro carries over.</p>
 
   <h2>Scanning, photos, and voice notes</h2>
-  <p>The first time you scan a document, take a photo, or record a voice note, iOS asks for camera or microphone permission. If you declined and want to enable it later: Settings → Privacy &amp; Security → Camera / Microphone → DailyDo. Voice recordings are transcribed automatically; transcription quality depends on your device's language settings.</p>
+  <p>The first time you scan a document, take a photo, record a voice note, attach a photo or save a contact, DailyDo asks for permission. If you declined and want to turn it on later: Settings → Privacy &amp; Security → Camera, Microphone, Speech Recognition, Photos or Contacts → DailyDo (Mac: System Settings → Privacy &amp; Security). Voice recordings are transcribed automatically; quality depends on your device's language settings.</p>
+
+  <h2>Deleting your data</h2>
+  <p>Delete items in the app and the deletion syncs everywhere. To erase everything, delete DailyDo from all your devices, then go to Settings → [your name] → iCloud → Manage Account Storage → DailyDo → Delete Data from iCloud.</p>
 
   <h2>Privacy</h2>
-  <p>Your data stays on your devices and in your own private iCloud — there's no account and no analytics. See the <a href="privacy.html">Privacy Policy</a> for details.</p>
+  <p>Your data stays on your devices and in your own private iCloud. There's no account and no analytics; purchases are handled by Apple, with an anonymous receipt kept by RevenueCat. See the <a href="privacy.html">Privacy Policy</a> for details.</p>
 
   <hr>
   <footer>© 2026 FRANCESCO BERTOCCI, LLC · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></footer>
