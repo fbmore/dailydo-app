@@ -189,18 +189,9 @@
     .bul { max-width:320px; margin:0 auto; }
   }
 
-  /* gallery */
-  .gallery { padding:72px 0 0; border-top:1px solid var(--line); text-align:center; }
-  .gallery h2 { font-family:var(--display); font-size:clamp(26px,3.6vw,34px); font-weight:600; margin:0 0 8px; }
-  .gallery > p { color:var(--muted); margin:0 0 34px; }
-  .shots { display:flex; flex-wrap:wrap; gap:22px; justify-content:center; }
-  .shotframe { width:210px; border-radius:34px; border:1px solid var(--line); background:#050505; padding:7px; box-shadow:var(--shadow); }
-  .shotframe img { width:100%; display:block; border-radius:28px; }
-  .shotframe.pad { width:420px; border-radius:26px; }
-  .shotframe.pad img { border-radius:20px; }
-
   /* feature cards */
   .features { display:grid; grid-template-columns:1fr; gap:16px; margin:72px 0 0; }
+  .feat + .features { margin-top:0; padding-top:72px; border-top:1px solid var(--line); }
   @media (min-width:640px){ .features { grid-template-columns:1fr 1fr; } }
   .card { background:var(--surface); border-radius:20px; padding:26px 26px 24px; box-shadow:0 0 0 1px var(--line), 0 1px 2px rgba(0,0,0,.04); transition:transform .15s ease-out, box-shadow .15s ease-out; }
   .card:hover { transform:translateY(-3px); box-shadow:0 0 0 1px var(--line), var(--shadow); }
@@ -407,21 +398,6 @@
       </ul>
     </div>
     <div class="phone"><img data-light="shots/search-dark.png" data-dark="shots/search-dark.png" src="shots/search-dark.png" alt="Search and tag filtering in DailyDo" loading="lazy"></div>
-  </section>
-
-  <!-- ============ gallery ============ -->
-  <section class="gallery">
-    <h2>Straight from the app.</h2>
-    <p>Real screenshots — every accent color, light and dark.</p>
-    <div class="shots">
-      <div class="shotframe"><img data-light="shots/onboarding-dark.png" data-dark="shots/onboarding-dark.png" src="shots/onboarding-dark.png" alt="Onboarding" loading="lazy"></div>
-      <div class="shotframe"><img data-light="shots/quickcreate-dark.png" data-dark="shots/quickcreate-dark.png" src="shots/quickcreate-dark.png" alt="Quick create" loading="lazy"></div>
-      <div class="shotframe"><img data-light="shots/media-light.png" data-dark="shots/media-dark.png" src="shots/media-dark.png" alt="Podcast subscriptions" loading="lazy"></div>
-      <div class="shotframe"><img data-light="shots/collections-light.png" data-dark="shots/collections-light.png" src="shots/collections-light.png" alt="Collections" loading="lazy"></div>
-    </div>
-    <div class="shots" style="margin-top:22px">
-      <div class="shotframe pad"><img data-light="shots/ipad-light.png" data-dark="shots/ipad-dark.png" src="shots/ipad-dark.png" alt="DailyDo on iPad" loading="lazy"></div>
-    </div>
   </section>
 
   <!-- ============ feature cards ============ -->
