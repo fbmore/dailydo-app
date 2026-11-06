@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get DailyDo</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="DailyDo: everything in your head, in one place. Free on the App Store for iPhone, iPad and Mac.">
+<meta property="og:title" content="Get DailyDo">
+<meta property="og:description" content="Everything in your head, in one place. Free on the App Store.">
+<meta property="og:image" content="https://getdailydo.com/dailydo.png">
+<link rel="icon" href="/dailydo.png">
+<link rel="canonical" href="https://getdailydo.com/">
+<noscript><meta http-equiv="refresh" content="2;url=https://apps.apple.com/app/dailydo-capture-anything/id6751297766"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --canvas:#FBF8F3; --ink:#1F1B16; --muted:#7A7168;
+    --g1:#F5A623; --g2:#F0426E; --g3:#8B5CF6;
+    --display:"Bricolage Grotesque",ui-serif,Georgia,serif;
+    --body:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html, body { height:100%; }
+  body { margin:0; background:var(--canvas); color:var(--ink); font-family:var(--body); -webkit-font-smoothing:antialiased;
+         display:grid; place-items:center; padding:24px 16px; text-align:center; }
+  main { max-width:360px; }
+  .icon { width:88px; height:88px; border-radius:20px; display:block; margin:0 auto 20px;
+          outline:1px solid oklch(0 0 0 / .1); outline-offset:-1px; box-shadow:0 12px 28px rgba(31,27,22,.12); }
+  h1 { font-family:var(--display); font-size:30px; font-weight:600; letter-spacing:-.4px; margin:0 0 6px; text-wrap:balance; }
+  p { margin:0 0 24px; color:var(--muted); font-size:16px; line-height:1.5; text-wrap:pretty; }
+  .badge { display:inline-block; border-radius:10px; transition-property:scale; transition-duration:.12s; transition-timing-function:ease-out; }
+  .badge:active { scale:.96; }
+  .badge:focus-visible { outline:2px solid var(--g2); outline-offset:4px; }
+  .badge img { display:block; height:52px; width:auto; }
+  .home { display:inline-block; margin-top:20px; padding:12px 8px; font-size:14px; font-weight:500; color:var(--muted); }
+</style>
+<script>window.FOLIAIRE_SITE_ID = '9745d2087cc061fb08abc67e';</script>
+</head>
+<body>
+<main>
+  <img class="icon" src="/dailydo.png" alt="" width="88" height="88">
+  <h1>Get DailyDo</h1>
+  <p id="status">Opening the App Store…</p>
+  <a class="badge" id="store" href="https://apps.apple.com/app/dailydo-capture-anything/id6751297766"><img src="/appstore-badge.svg" alt="Download on the App Store" height="52"></a>
+  <br><a class="home" href="/">What is DailyDo?</a>
+</main>
+<script>
+  (function () {
+    var STORE = 'https://apps.apple.com/app/dailydo-capture-anything/id6751297766';
+    var done = false;
+    function go() {
+      if (done) return; done = true;
+      document.getElementById('status').textContent = 'If the App Store didn’t open, tap the button below.';
+      location.replace(STORE);
+    }
+    // The analytics script records the page view (with ?ref=…) as soon as it runs,
+    // using sendBeacon, so it survives the redirect. Give it a moment, but never wait
+    // long: opted-out or blocked visitors go straight on.
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://foliairestudio.com/analytics/foliaire.js';
+    s.onload = function () { setTimeout(go, 150); };
+    s.onerror = go;
+    document.head.appendChild(s);
+    setTimeout(go, 1500);
+  })();
+</script>
+</body>
+</html>
