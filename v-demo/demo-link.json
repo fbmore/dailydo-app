@@ -1,0 +1,17 @@
+{
+ "senderName": "Alex Rivera",
+ "expiresAt": "2026-11-18T21:00:00Z",
+ "title": "How to keep sourdough starter alive on vacation",
+ "items": [
+  {
+   "type": "link",
+   "title": "How to keep sourdough starter alive on vacation",
+   "url": "https://example.com/sourdough-vacation",
+   "site": "example.com",
+   "linkImage": "/v-demo/p4.svg",
+   "markdown": "The fridge trick in step 3 works. Feed it the night before you leave.",
+   "attachments": []
+  }
+ ],
+ "id": "demo-link"
+}

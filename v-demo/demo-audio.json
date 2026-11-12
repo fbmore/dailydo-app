@@ -1,0 +1,22 @@
+{
+ "senderName": "Alex Rivera",
+ "expiresAt": "2026-11-18T21:00:00Z",
+ "title": "Saturday reminder",
+ "items": [
+  {
+   "type": "note",
+   "title": "Saturday reminder",
+   "markdown": "",
+   "attachments": [
+    {
+     "kind": "audio",
+     "url": "/v-demo/memo.m4a",
+     "name": "Saturday reminder.m4a",
+     "duration": 9,
+     "transcript": "Quick reminder for Saturday. Bring the folding table, two extension cords, and the blue cooler. We set up at eight, doors open at nine."
+    }
+   ]
+  }
+ ],
+ "id": "demo-audio"
+}

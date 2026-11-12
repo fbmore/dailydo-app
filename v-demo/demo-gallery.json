@@ -1,0 +1,58 @@
+{
+ "senderName": "Alex Rivera",
+ "expiresAt": "2026-11-18T21:00:00Z",
+ "title": "Lake trip photos",
+ "message": "",
+ "items": [
+  {
+   "type": "note",
+   "title": "Lake trip photos",
+   "markdown": "",
+   "attachments": [
+    {
+     "kind": "image",
+     "url": "/v-demo/p1.svg",
+     "name": "Sunset at the lake.jpg",
+     "w": 1600,
+     "h": 1067
+    },
+    {
+     "kind": "image",
+     "url": "/v-demo/p2.svg",
+     "name": "Trailhead.jpg",
+     "w": 1067,
+     "h": 1600
+    },
+    {
+     "kind": "image",
+     "url": "/v-demo/p3.svg",
+     "name": "p3.jpg",
+     "w": 1600,
+     "h": 1200
+    },
+    {
+     "kind": "image",
+     "url": "/v-demo/p4.svg",
+     "name": "p4.jpg",
+     "w": 1600,
+     "h": 900
+    },
+    {
+     "kind": "image",
+     "url": "/v-demo/p5.svg",
+     "name": "p5.jpg",
+     "w": 1200,
+     "h": 1600
+    },
+    {
+     "kind": "image",
+     "url": "/v-demo/p6.svg",
+     "name": "p6.jpg",
+     "w": 1600,
+     "h": 1067
+    }
+   ]
+  }
+ ],
+ "id": "demo-gallery"
+}

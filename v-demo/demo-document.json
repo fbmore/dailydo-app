@@ -1,0 +1,23 @@
+{
+ "senderName": "Alex Rivera",
+ "expiresAt": "2026-11-18T21:00:00Z",
+ "title": "Garden Plan 2027",
+ "message": "Take a look before Thursday.",
+ "items": [
+  {
+   "type": "document",
+   "title": "Garden Plan 2027",
+   "markdown": "Draft for the community garden meeting.",
+   "attachments": [
+    {
+     "kind": "pdf",
+     "url": "/v-demo/garden-plan.pdf",
+     "name": "Garden Plan 2027.pdf",
+     "size": 28109,
+     "pages": 3
+    }
+   ]
+  }
+ ],
+ "id": "demo-document"
+}

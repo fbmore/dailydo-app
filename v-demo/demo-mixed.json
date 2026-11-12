@@ -1,0 +1,130 @@
+{
+ "senderName": "Alex Rivera",
+ "expiresAt": "2026-11-18T21:00:00Z",
+ "title": "Market day kit",
+ "message": "Everything for Saturday in one place.",
+ "items": [
+  {
+   "type": "task",
+   "title": "Market day setup",
+   "markdown": "Arrive by 8:00. Booth 14, next to the bakery.",
+   "dueDate": "2026-11-14T08:00:00",
+   "checklist": [
+    {
+     "text": "Folding table",
+     "done": true
+    },
+    {
+     "text": "Two extension cords",
+     "done": true
+    },
+    {
+     "text": "Blue cooler",
+     "done": false
+    },
+    {
+     "text": "Price cards",
+     "done": false
+    },
+    {
+     "text": "Cash box with change",
+     "done": false
+    }
+   ],
+   "tags": [
+    {
+     "name": "Market",
+     "color": "#9466BF"
+    }
+   ],
+   "attachments": []
+  },
+  {
+   "type": "note",
+   "title": "Saturday reminder",
+   "markdown": "",
+   "attachments": [
+    {
+     "kind": "audio",
+     "url": "/v-demo/memo.m4a",
+     "name": "Saturday reminder.m4a",
+     "duration": 9,
+     "transcript": "Quick reminder for Saturday. Bring the folding table, two extension cords, and the blue cooler. We set up at eight, doors open at nine."
+    }
+   ]
+  },
+  {
+   "type": "document",
+   "title": "Garden Plan 2027",
+   "markdown": "Draft for the community garden meeting.",
+   "attachments": [
+    {
+     "kind": "pdf",
+     "url": "/v-demo/garden-plan.pdf",
+     "name": "Garden Plan 2027.pdf",
+     "size": 28109,
+     "pages": 3
+    }
+   ]
+  },
+  {
+   "type": "link",
+   "title": "How to keep sourdough starter alive on vacation",
+   "url": "https://example.com/sourdough-vacation",
+   "site": "example.com",
+   "linkImage": "/v-demo/p4.svg",
+   "markdown": "The fridge trick in step 3 works. Feed it the night before you leave.",
+   "attachments": []
+  },
+  {
+   "type": "note",
+   "title": "Lake trip photos",
+   "markdown": "",
+   "attachments": [
+    {
+     "kind": "image",
+     "url": "/v-demo/p1.svg",
+     "name": "Sunset at the lake.jpg",
+     "w": 1600,
+     "h": 1067
+    },
+    {
+     "kind": "image",
+     "url": "/v-demo/p2.svg",
+     "name": "Trailhead.jpg",
+     "w": 1067,
+     "h": 1600
+    },
+    {
+     "kind": "image",
+     "url": "/v-demo/p3.svg",
+     "name": "p3.jpg",
+     "w": 1600,
+     "h": 1200
+    },
+    {
+     "kind": "image",
+     "url": "/v-demo/p4.svg",
+     "name": "p4.jpg",
+     "w": 1600,
+     "h": 900
+    },
+    {
+     "kind": "image",
+     "url": "/v-demo/p5.svg",
+     "name": "p5.jpg",
+     "w": 1200,
+     "h": 1600
+    },
+    {
+     "kind": "image",
+     "url": "/v-demo/p6.svg",
+     "name": "p6.jpg",
+     "w": 1600,
+     "h": 1067
+    }
+   ]
+  }
+ ],
+ "id": "demo-mixed"
+}

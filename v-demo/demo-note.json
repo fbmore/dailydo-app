@@ -1,0 +1,40 @@
+{
+ "senderName": "Alex Rivera",
+ "expiresAt": "2026-11-18T21:00:00Z",
+ "title": "Weekend at the lake",
+ "message": "Here's the recap from last weekend!",
+ "items": [
+  {
+   "type": "note",
+   "title": "Weekend at the lake",
+   "markdown": "We finally made it up to the cabin. The water was **cold** but clear, and the trail on the north side is open again.\n\n## What worked\n- Leaving at 7 to beat traffic\n- The new stove (boils in 4 minutes)\n- Packing one bag per person\n\n## Next time\nBring the *second* paddle, and book the dock spot early. The general store closes at 6.\n\n> \u201cBest sunset of the summer.\u201d \u2014 everyone, every night",
+   "tags": [
+    {
+     "name": "Travel",
+     "color": "#4F7CAC"
+    },
+    {
+     "name": "Family",
+     "color": "#C96E4B"
+    }
+   ],
+   "attachments": [
+    {
+     "kind": "image",
+     "url": "/v-demo/p1.svg",
+     "name": "Sunset at the lake.jpg",
+     "w": 1600,
+     "h": 1067
+    },
+    {
+     "kind": "image",
+     "url": "/v-demo/p2.svg",
+     "name": "Trailhead.jpg",
+     "w": 1067,
+     "h": 1600
+    }
+   ]
+  }
+ ],
+ "id": "demo-note"
+}

@@ -1,0 +1,21 @@
+{
+ "senderName": "Alex Rivera",
+ "expiresAt": "2026-11-18T21:00:00Z",
+ "title": "Market day setup",
+ "items": [
+  {
+   "type": "task",
+   "title": "Market day setup",
+   "markdown": "Arrive by 8:00. Booth 14, next to the bakery.\n\n- [x] Folding table\n- [x] Two extension cords\n- [ ] Blue cooler\n- [ ] Price cards\n- [ ] Cash box with change",
+   "dueDate": "2026-11-14T08:00:00",
+   "tags": [
+    {
+     "name": "Market",
+     "color": "#9466BF"
+    }
+   ],
+   "attachments": []
+  }
+ ],
+ "id": "demo-task"
+}
