@@ -44,17 +44,17 @@
   <nav><a href="index.html">← DailyDo</a></nav>
   <div class="kicker">DailyDo</div>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 5 November 2026</p>
+  <p class="muted">Last updated: 11 November 2026</p>
 
-  <p class="lead">DailyDo is built so that your tasks, notes, and documents stay yours. The app has no accounts, no analytics, and no servers of its own. Your data lives on your devices and, if you use iCloud, in your own private iCloud account. The developer never sees it.</p>
+  <p class="lead">DailyDo is built so that your tasks, notes, and documents stay yours. The app has no accounts and no analytics. Your data lives on your devices and, if you use iCloud, in your own private iCloud account. The developer never sees it. The one exception is a page you choose to publish to the web, which is public by design.</p>
 
-  <p><span class="pill">In short</span> &nbsp;No sign-up. No tracking. No ads. No analytics. Nothing you capture is ever sent to the developer. If you buy DailyDo Pro, an anonymous purchase record is kept by our subscription provider, RevenueCat.</p>
+  <p><span class="pill">In short</span> &nbsp;No sign-up. No tracking. No ads. No analytics. Nothing you capture reaches anyone else unless you share it, collaborate on it, or publish it as a web page. If you buy DailyDo Pro, an anonymous purchase record is kept by our subscription provider, RevenueCat.</p>
 
   <hr>
 
   <h2>What DailyDo stores</h2>
   <p>Everything you create in DailyDo is stored <strong>locally on your device</strong>: tasks (with due dates, reminders, repeat rules and completion history), notes, links, timers, checklists, podcasts you follow and your listening position, tags, and attached documents, photos, scans, videos and voice recordings. DailyDo may also cache phone numbers, email addresses and names it detects in your own text so it can offer actions on them.</p>
-  <p>If you are signed in to iCloud, DailyDo syncs this data to <strong>your own private iCloud account</strong> (Apple's CloudKit private database for the container <code>iCloud.com.fbmore.DD</code>, plus that container's iCloud Drive folder for attached files). Your settings sync through iCloud key-value storage. This keeps your iPhone, iPad and Mac up to date and restores your data if you reinstall the app. The developer has no access to your private iCloud data, and nothing is ever placed in a public or shared database.</p>
+  <p>If you are signed in to iCloud, DailyDo syncs this data to <strong>your own private iCloud account</strong> (Apple's CloudKit private database for the container <code>iCloud.com.fbmore.DD</code>, plus that container's iCloud Drive folder for attached files). Your settings sync through iCloud key-value storage. This keeps your iPhone, iPad and Mac up to date and restores your data if you reinstall the app. The developer has no access to your private iCloud data. Two features you choose to use place data elsewhere: an item you <strong>collaborate</strong> on is shared through iCloud with only the people you invite, and a page you <strong>publish</strong> goes to a public database (see <a href="#published-pages">Published pages</a>).</p>
   <p>Widgets and the share extension read a small summary (item titles, due times, pinned and timer state) from a container shared only with DailyDo on the same device.</p>
 
   <h2>On-device intelligence</h2>
@@ -67,13 +67,24 @@
   </ul>
 
   <h2>Network requests the app makes</h2>
-  <p>DailyDo talks to the internet only to do things you asked for. None of these requests go to the developer.</p>
+  <p>DailyDo talks to the internet only to do things you asked for. Apart from publishing a page, none of these requests go to the developer.</p>
   <ul>
     <li><strong>iCloud sync</strong>: your data travels between your devices through Apple's iCloud, encrypted in transit and tied to your Apple Account.</li>
     <li><strong>Links you save</strong>: DailyDo loads the page directly from that website to read its title and preview, just as a browser would.</li>
     <li><strong>Podcasts and feeds you follow</strong>: episodes and updates download directly from the publisher's servers. DailyDo also looks up a podcast's title in Apple's public iTunes search to find its artwork. YouTube channel feeds and video embeds load from YouTube (embeds use the privacy-enhanced <code>youtube-nocookie.com</code> domain).</li>
     <li><strong>Book lookups</strong>: when an item contains an ISBN, DailyDo can look up the book's title on isbnsearch.org, sending only that ISBN.</li>
+    <li><strong>Published pages</strong>: when you publish, the page is uploaded to DailyDo's public iCloud database, and the app asks our page server for each page's view count. See below.</li>
     <li><strong>Purchases</strong>: see below.</li>
+  </ul>
+
+  <h2 id="published-pages">Published pages</h2>
+  <p>You can select items and publish them as a web page at an unlisted getdailydo.com/v/… address. Nothing is published unless you tap Publish, and the app shows you what will be public first.</p>
+  <ul>
+    <li><strong>What's published</strong>: the page title, the optional message and name you enter, and the selected items' titles, text, checklists, due dates, tags, links and attached photos, videos, recordings (with their transcripts) and files. Photos are resized and videos re-encoded first. Reminders, alarms and other settings are not published.</li>
+    <li><strong>Where it's stored</strong>: in the public database of DailyDo's iCloud container (<code>iCloud.com.fbmore.DD</code>), created with your iCloud account. Apple identifies the creator only by an anonymous ID; we don't see your Apple Account name or email. Only you can change a page.</li>
+    <li><strong>Who can see it</strong>: anyone who has the link, without an account. Pages aren't listed or indexed, but anyone you give the link to can pass it on and download the files. Because pages are public, the developer can see them too, and may look at one that's reported.</li>
+    <li><strong>Our page server</strong>: viewers load pages through a small server we run on Cloudflare. It reads the page from iCloud, builds the link preview, and keeps one number per page: how many times it was opened. It stores no IP addresses, cookies or details about viewers. Cloudflare processes requests under <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">its privacy policy</a>. The page itself contains no analytics.</li>
+    <li><strong>How long it lasts</strong>: until the link expires (7 days, or up to 90 with DailyDo Pro), you stop sharing it, or you delete its items in the app. Expired pages and their files are deleted every night. We may also remove a page that breaks the <a href="terms.html">Terms of Use</a>.</li>
   </ul>
 
   <h2>Purchases and DailyDo Pro</h2>
@@ -89,7 +100,7 @@
     <li>No analytics, usage tracking, crash reporting or advertising SDKs of any kind in the app.</li>
     <li>No advertising identifier and no tracking across apps or websites.</li>
     <li>No location data.</li>
-    <li>None of your tasks, notes, links, files or recordings are ever sent to the developer.</li>
+    <li>None of your tasks, notes, links, files or recordings are sent to the developer, except what you choose to publish as a web page.</li>
   </ul>
 
   <h2>Permissions, only when needed</h2>
@@ -104,10 +115,15 @@
   </ul>
 
   <h2>Sharing</h2>
-  <p>When you share an item or checklist, DailyDo packs the content into the link itself and hands it to the system share sheet, with a link to download DailyDo. No server hosts your shared content and nothing is uploaded. What you share, and with whom, is entirely up to you, and anything you send can't be taken back.</p>
+  <p>DailyDo shares only when you ask it to, in one of three ways:</p>
+  <ul>
+    <li><strong>Share as a link or text</strong>: DailyDo packs the content into the link or message itself and hands it to the system share sheet. Nothing is uploaded, and anything you send can't be taken back.</li>
+    <li><strong>Collaborate</strong>: the item is shared through iCloud with the people you invite, who can see it (and edit it, if you allow). Stop sharing at any time.</li>
+    <li><strong>Publish as a web page</strong>: a public page anyone with the link can open, as described in <a href="#published-pages">Published pages</a>.</li>
+  </ul>
 
   <h2>Deleting your data</h2>
-  <p>Delete individual items in the app at any time; deletions sync to your other devices. To remove everything, delete DailyDo from all your devices and then remove its iCloud data in Settings → [your name] → iCloud → Manage Account Storage → DailyDo → Delete Data from iCloud (on Mac: System Settings → [your name] → iCloud → Manage). To ask us to delete the anonymous purchase record RevenueCat keeps, email us with the date and type of your purchase.</p>
+  <p>Delete individual items in the app at any time; deletions sync to your other devices, and deleting an item also deletes any page it was published on. Stop sharing a page at any time from Settings → Published Pages. To remove everything, delete DailyDo from all your devices and then remove its iCloud data in Settings → [your name] → iCloud → Manage Account Storage → DailyDo → Delete Data from iCloud (on Mac: System Settings → [your name] → iCloud → Manage). To ask us to delete the anonymous purchase record RevenueCat keeps, email us with the date and type of your purchase.</p>
 
   <h2>Children's privacy</h2>
   <p>DailyDo is not directed at children under 13 and does not knowingly collect any personal information from them.</p>
