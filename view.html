@@ -14,7 +14,7 @@
   :root {
     --canvas:#FBF8F3; --surface:#FFFFFF; --ink:#1F1B16; --muted:#7A7168;
     --line:rgba(31,27,22,.09); --soft:rgba(31,27,22,.05);
-    --acc:#9466BF; --acc-soft:rgba(148,102,191,.14);
+    --acc:#9466BF; --acc-soft:rgba(148,102,191,.14); --on-acc:#fff;
     --card-shadow:0 0 0 1px rgba(31,27,22,.06), 0 1px 2px rgba(31,27,22,.04), 0 8px 24px rgba(31,27,22,.05);
     --img-outline:oklch(0 0 0 / .1);
     --display:"Bricolage Grotesque",ui-serif,Georgia,serif;
@@ -26,7 +26,7 @@
     :root {
       --canvas:#141217; --surface:#1E1B22; --ink:#F2EFEA; --muted:#9B939F;
       --line:rgba(242,239,234,.10); --soft:rgba(242,239,234,.06);
-      --acc:#B48BDB; --acc-soft:rgba(180,139,219,.16);
+      --acc:#B48BDB; --acc-soft:rgba(180,139,219,.16); --on-acc:#fff;
       --card-shadow:0 0 0 1px rgba(242,239,234,.07), 0 8px 24px rgba(0,0,0,.35);
       --img-outline:oklch(1 0 0 / .1);
     }
@@ -55,7 +55,7 @@
          background:var(--surface); box-shadow:var(--card-shadow); font-size:14px; font-weight:500; text-decoration:none; color:var(--ink);
          transition-property:scale, background-color; transition-duration:.15s; transition-timing-function:var(--ease); white-space:nowrap; }
   .btn:active { scale:.96; }
-  .btn.primary { background:var(--acc); color:#fff; box-shadow:none; }
+  .btn.primary { background:var(--acc); color:var(--on-acc); box-shadow:none; }
   .btn svg { width:17px; height:17px; flex:none; }
   .btn .lbl-short { display:none; }
   @media (max-width:520px) { .btn .lbl { display:none; } .btn { padding:0 11px; } .btn.has-short .lbl-short { display:inline; } }
@@ -117,7 +117,7 @@
   .checklist li { display:flex; align-items:flex-start; gap:12px; padding:10px 12px; border-radius:14px; font-size:16px; }
   .checklist li + li { border-top:1px solid var(--line); border-radius:0; }
   .box { flex:none; width:22px; height:22px; margin-top:1px; border-radius:7px; box-shadow:inset 0 0 0 1.5px var(--muted); display:grid; place-items:center; }
-  .done .box { background:var(--acc); box-shadow:none; color:#fff; }
+  .done .box { background:var(--acc); box-shadow:none; color:var(--on-acc); }
   .done .box svg, .box svg { width:14px; height:14px; stroke-width:2.6; }
   .done span.t { color:var(--muted); text-decoration:line-through; text-decoration-color:color-mix(in oklab, var(--muted) 60%, transparent); }
   .progress { display:flex; align-items:center; gap:10px; padding:14px 18px 4px; font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; }
@@ -175,7 +175,7 @@
   /* audio */
   .audio { padding:16px; }
   .player { display:flex; align-items:center; gap:14px; }
-  .pp { flex:none; width:48px; height:48px; border-radius:50%; border:0; background:var(--acc); color:#fff; display:grid; place-items:center; cursor:pointer; transition:scale .15s var(--ease); }
+  .pp { flex:none; width:48px; height:48px; border-radius:50%; border:0; background:var(--acc); color:var(--on-acc); display:grid; place-items:center; cursor:pointer; transition:scale .15s var(--ease); }
   .pp:active { scale:.96; }
   .pp svg { width:20px; height:20px; }
   .pp .i-play { margin-left:3px; }
@@ -527,7 +527,35 @@
     return s;
   }
 
+  // The publisher's accent color from DailyDo (Settings → Appearance), light and dark,
+  // same values as the app's ThemeManager. Unknown or missing: the default purple above.
+  var ACCENTS = {
+    Purple: ["#9466BF", "#BA94D9"], Blue: ["#598CBF", "#8CB2E6"], Green: ["#59A673", "#8CC799"],
+    Orange: ["#D98C59", "#F2B280"], Red: ["#CC5959", "#E68C8C"], Pink: ["#D966A6", "#F299BF"],
+    Indigo: ["#7366B2", "#A194D9"], Teal: ["#4CA6A6", "#80C7C7"], Mint: ["#59B2A6", "#8CD1C7"],
+    Cyan: ["#4CA6BF", "#80C7E0"], Yellow: ["#BFA64C", "#E0CC80"], Brown: ["#A68066", "#BFA187"]
+  };
+  function applyAccent(name) {
+    var old = document.getElementById("accent-style"); if (old) old.remove();
+    var pair = Object.prototype.hasOwnProperty.call(ACCENTS, name) ? ACCENTS[name] : null;
+    if (!pair) return;
+    function vars(hex, alpha) {
+      var n = parseInt(hex.slice(1), 16), r = n >> 16, g = (n >> 8) & 255, b = n & 255;
+      var lin = function (c) { c /= 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); };
+      var lum = 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+      // Text on filled buttons and boxes: white or ink, whichever contrasts more (ink is #1F1B16, L≈0.012).
+      var onAcc = 1.05 / (lum + 0.05) >= (lum + 0.05) / 0.062 ? "#fff" : "#1F1B16";
+      return "--acc:" + hex + ";--acc-soft:rgba(" + r + "," + g + "," + b + "," + alpha + ");--on-acc:" + onAcc + ";";
+    }
+    var st = document.createElement("style"); st.id = "accent-style";
+    st.textContent = ":root{" + vars(pair[0], 0.14) + "}@media (prefers-color-scheme: dark){:root{" + vars(pair[1], 0.16) + "}}";
+    document.head.appendChild(st);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", pair[0]);
+  }
+
   function render(set) {
+    applyAccent(set.accent);
     var items = set.items || [];
     var single = items.length === 1;
     document.title = (set.title || "Shared from DailyDo") + " · DailyDo";
