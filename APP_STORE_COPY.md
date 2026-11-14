@@ -1,4 +1,4 @@
-# DailyDo — App Store Listing (1.3)
+# DailyDo — App Store Listing (1.6)
 
 Paste into App Store Connect → DailyDo (app 6751297766). Fill in **both** the iOS and the macOS
 version pages. Character counts are in brackets.
@@ -18,44 +18,58 @@ Alternates: `One inbox for your whole day` [28] · `Capture first, organize neve
 
 ## Promotional Text (170, editable without a new build)
 
-> Type it, paste it, say it or share it: DailyDo turns it into a task with a reminder, a note, a link or a podcast. Synced privately across iPhone, iPad and Mac. [159]
+`Capture anything, then share it, work on it together with the people in it, or print it as a calendar or a list. Synced privately across iPhone, iPad and Mac.`
 
 ## Description (4000)
+
+iOS (the Mac version drops the alarms line and says "A calendar view of everything that's due." instead of the widgets line):
 
 ```
 Everything in your head, in one place.
 
-DailyDo is the fastest way to get a thought out of your head and into the right place. Type it, paste it, dictate it, or share it from any app, and DailyDo works out what it is: a task with a reminder, a note, a link, a timer, a document, or a podcast to play. No folders to choose, no forms to fill, no account to create.
+Capture anything, share it, work on it together, and print it in the right order. Type it, paste it, say it, or share it from any app, and DailyDo works out what it is: a task with a reminder, a note, a link, a timer, a document, or a podcast to play. No folders to choose, no forms to fill, no account to create.
 
-SMART CAPTURE
+CAPTURE ANYTHING
 • "Pick up prescription tomorrow at 5pm" becomes a task with a reminder.
 • Paste a URL and it becomes a link, titled automatically.
 • Jot a long thought and it becomes a note, with a title written for you on your device.
 • Paste a podcast or RSS feed and you're subscribed.
+• Share into DailyDo from Safari, Photos, Mail or any app, or paste from the clipboard.
+• Dictate, or record voice notes with automatic transcription.
+• Ask Siri: "Add a task in DailyDo", "What's due today in DailyDo?", "Start a timer in DailyDo".
 
-CAPTURE FROM ANYWHERE
-• Share into DailyDo from Safari, Photos, Mail or any app.
-• Smart paste from the clipboard.
-• Voice dictation and voice notes with automatic transcription.
-• Home Screen widgets show what's pinned, overdue and due today.
+SHARE IT
+• Send tasks as a link other DailyDo users tap to import, or as plain text for anyone.
+• Publish notes, checklists, photos and files as a web page that opens in any browser, no app needed. Pages expire on their own, and you can take one down any time.
+
+WORK ON IT TOGETHER
+• Share an item with the people in it: a packing list, a shopping run, a plan.
+• Everyone you invite can edit, check things off, and see who else is on it.
+• Shared through iCloud with only the people you invite. Stop sharing whenever you like.
+
+PRINT IT, IN THE RIGHT ORDER
+• Print any task list straight from its menu, with every item, on as many pages as it takes.
+• As a calendar, with a column for each day, or as a list with dates, tags and notes.
+• Items without a date get their own page, so nothing is left off. Uncheck anything you don't need.
 
 TASKS THAT HOLD THE LINE
 • Reminders with Mark Done and Snooze right from the notification.
 • Alarms that break through Focus for the things you can't miss.
 • Repeating tasks you can complete day by day, with streaks.
-• Postpone to tomorrow or a week out in one tap.
+• A calendar view, and Home Screen widgets for what's pinned, overdue and due today.
 
 MORE THAN A TODO LIST
-• Notes, links and a reading list that builds itself.
+• Notes with checklists, links, and a reading list that builds itself.
 • Podcasts: a built-in player with Up Next, speeds and transcripts.
 • Multi-stage timers for cooking, workouts and focus sessions.
 • Documents: scan with text recognition, snap photos, attach files.
 • Tags with colors, twelve accent colors, light, dark and Night Mode.
 
-PRIVATE BY DESIGN
+PRIVATE UNTIL YOU SHARE IT
 • No account. No sign-up. No ads. No analytics.
 • Your data lives on your device and syncs through your own private iCloud.
 • Smart features run on your device.
+• Nothing reaches anyone else unless you send it, collaborate on it, or publish it.
 
 IPHONE, IPAD AND MAC
 One purchase, everywhere: your items stay in sync across all your devices through iCloud.
@@ -67,28 +81,23 @@ DailyDo is free for up to 50 active items, and completed items never count. Capt
 • Lifetime: $69.99, one-time purchase
 Prices are in USD and vary by country. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period; your Apple Account is charged for renewal within 24 hours before the period ends. Manage or cancel any time in Settings → [your name] → Subscriptions. Any unused free-trial time is forfeited when you buy a subscription.
 
-Terms of Use: https://fbmore.github.io/dailydo-app/terms.html
-Privacy Policy: https://fbmore.github.io/dailydo-app/privacy.html
+Terms of Use: https://getdailydo.com/terms.html
+Privacy Policy: https://getdailydo.com/privacy.html
 Apple's Standard EULA: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 ```
 
-[2,675]
 
 ## Keywords (100)
 
-`tasks,todo,notes,reminders,capture,checklist,timer,scanner,ocr,voice,memo,podcast,gtd,inbox,planner` [99]
+`tasks,todo,notes,reminders,capture,checklist,share,collaborate,print,calendar,timer,voice,podcast`
 
-(No "DailyDo", no "app", no words already in the name or subtitle.)
-
-## What's New in 1.3
+## What's New in 1.6
 
 ```
-• Widgets now focus on what matters: pinned, overdue and today's tasks.
-• Repeating tasks can be completed day by day, independently.
-• New "Postpone a Week" in task menus; moving a date in Quick Create reschedules the task.
-• Night Mode: red on black, easy on your eyes at night (Settings).
-• DailyDo for Mac, synced with your iPhone and iPad through iCloud.
-• DailyDo Pro: unlimited active items. Free stays free for up to 50.
+• Print any task list from its menu, as a calendar or a list, with every item (including ones with no date) on as many pages as it takes. Uncheck what you don't need.
+• Publish notes, checklists, photos and files as a web page anyone can open, no app needed. Pages expire on their own.
+• Siri: add tasks (with alarms) and notes, ask what's due today, mark tasks done, open items and start timers.
+• Published pages use the accent color you picked in Settings → Appearance.
 ```
 
 ## Categories and rating
@@ -133,19 +142,19 @@ Permissions are requested only when a feature needs them: notifications for remi
 The same app runs on iPhone, iPad and Mac (Mac Catalyst) and syncs through iCloud.
 ```
 
-## Screenshot plan
+## Screenshots (1.6, uploaded)
 
-Sizes: iPhone 6.9" (1320×2868), iPhone 6.5" (1284×2778), iPad 13" (2064×2752), Mac (2880×1800).
-The site's `shots/` folder already has light/dark captures for most of these screens.
+Fictional `-demo` data, made with `scripts/store-screenshots.sh` and `scripts/store-screenshots-mac.sh` in the app repo
+(`-demoScreen print | share | collaborate` open the new sheets). The ordered sets are in the app repo at
+`marketing/screenshots/appstore-1.6/{iphone,ipad,mac}`.
 
-| # | Screen | Caption |
-|---|--------|---------|
-| 1 | Quick Create mid-typing "call the pharmacy tomorrow at 5", chip shows Task | Type it. DailyDo files it. |
-| 2 | Tasks tab: Today, overdue and pinned | Your day, sorted for you |
-| 3 | Share sheet from Safari into DailyDo | Capture from any app |
-| 4 | Notes list with auto titles | Notes that title themselves |
-| 5 | Podcast player with Up Next | Your podcasts, right next to your tasks |
-| 6 | Document scan with recognised text | Scan it, search it |
-| 7 | Accent picker / Night Mode | Make it yours |
-| 8 | iPad + Mac side by side | iPhone, iPad and Mac, privately synced |
-| 9 | Paywall | Free for 50 items. Pro for everything. |
+| # | Screen | Story beat |
+|---|--------|-----------|
+| 1 | Quick Create (iPhone/iPad only) | Capture anything |
+| 2 | Tasks: pinned, overdue, today, tomorrow | Your day, sorted |
+| 3 | Share Tasks: Link / Text / Page | Share it |
+| 4 | Shared packing list with two collaborators | Work on it together |
+| 5 | Print sheet: Calendar / List, every item checked | Print it, in the right order |
+| 6 | Notes | Notes that title themselves |
+| 7 | Links | A reading list that builds itself |
+| 8 | Search "lisbon" across everything | Find anything |

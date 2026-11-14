@@ -256,7 +256,7 @@
     <img class="appicon" src="dailydo.png" alt="DailyDo app icon">
     <div class="kicker reveal d1">Capture first, organize never</div>
     <h1 class="reveal d2">Everything in your head,<br><span class="shine">in one place.</span></h1>
-    <p class="lead reveal d3">Type it, paste it, say it, or share it — DailyDo instantly turns it into the right thing: a task with a reminder, a note, a bookmark, or a podcast to play. Synced privately across iPhone, iPad, and Mac.</p>
+    <p class="lead reveal d3">Type it, paste it, say it, or share it — DailyDo instantly turns it into the right thing: a task with a reminder, a note, a bookmark, or a podcast to play. Then send it, work on it together, or print it, in the right order. Synced privately across iPhone, iPad, and Mac.</p>
   </header>
 
   <div class="cta-row reveal d4">
@@ -317,6 +317,7 @@
       <ul class="bul">
         <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Live transcription with automatic titles</li>
         <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Voice memos keep the audio and the text, side by side</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Or ask Siri: “Add a task in DailyDo,” “What’s due today in DailyDo?”</li>
       </ul>
     </div>
     <div class="vphone" aria-label="Voice dictation demo">
@@ -389,7 +390,7 @@
         <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Smart paste detects links, dates, and phone numbers</li>
       </ul>
     </div>
-    <div class="phone"><img data-light="shots/links-light.png" data-dark="shots/links-light.png" src="shots/links-light.png" alt="DailyDo bookmarks" loading="lazy"></div>
+    <div class="phone"><img data-light="shots/links-light.png" data-dark="shots/links-dark.png" src="shots/links-dark.png" alt="DailyDo bookmarks" loading="lazy"></div>
   </section>
 
   <section class="feat">
@@ -401,8 +402,49 @@
         <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Everything indexed the moment it's captured</li>
       </ul>
     </div>
-    <div class="phone"><img data-light="shots/search-dark.png" data-dark="shots/search-dark.png" src="shots/search-dark.png" alt="Search and tag filtering in DailyDo" loading="lazy"></div>
+    <div class="phone"><img data-light="shots/search-light.png" data-dark="shots/search-dark.png" src="shots/search-dark.png" alt="Search and tag filtering in DailyDo" loading="lazy"></div>
   </section>
+
+  <!-- ============ the rest of the story: share, collaborate, print ============ -->
+  <section class="feat flip" id="share">
+    <div class="copy">
+      <div class="demo-label" style="text-align:left; margin-bottom:10px">Share it</div>
+      <h2>Send it your way.</h2>
+      <p>Pick a few tasks and send them as a link other DailyDo users tap to import, as plain text for anyone, or as a web page that opens in any browser, no app needed.</p>
+      <ul class="bul">
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Publish notes, checklists, photos and files as a page at getdailydo.com</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Pages expire on their own, and you can take one down any time</li>
+      </ul>
+    </div>
+    <div class="phone"><img src="shots/share-dark.png" alt="Sharing tasks as a link, text, or web page in DailyDo" loading="lazy"></div>
+  </section>
+
+  <section class="feat" id="collaborate">
+    <div class="copy">
+      <div class="demo-label" style="text-align:left; margin-bottom:10px">Collaborate</div>
+      <h2>Work on it together.</h2>
+      <p>Share a packing list, a shopping run, or a plan with the people in it. Everyone sees the same item, checks things off, and sees who else is on it.</p>
+      <ul class="bul">
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Shared through iCloud with only the people you invite</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Everyone you invite can edit, and you can stop sharing whenever you like</li>
+      </ul>
+    </div>
+    <div class="phone"><img src="shots/collaborate-dark.png" alt="A shared packing list with two collaborators in DailyDo" loading="lazy"></div>
+  </section>
+
+  <section class="feat flip" id="print">
+    <div class="copy">
+      <div class="demo-label" style="text-align:left; margin-bottom:10px">Print it</div>
+      <h2>On paper, in the right order.</h2>
+      <p>Print any list straight from its menu, every item, as many pages as it takes. Choose a calendar with a column for each day, or a list with dates, tags and notes.</p>
+      <ul class="bul">
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Items without a date get their own page, so nothing is left off</li>
+        <li><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg>Uncheck anything you don’t need; on iPhone, iPad and Mac</li>
+      </ul>
+    </div>
+    <div class="phone"><img src="shots/print-dark.png" alt="Printing a task list as a calendar or a list in DailyDo" loading="lazy"></div>
+  </section>
+
 
   <!-- ============ feature cards ============ -->
   <section class="features">
@@ -428,19 +470,19 @@
     </div>
     <div class="card">
       <div class="dot"><svg viewBox="0 0 24 24"><path d="M9 12.5 11 15l4.5-5.5"/><rect x="3.5" y="4" width="17" height="16" rx="4"/></svg></div>
-      <h3>Checklists &amp; sharing</h3>
-      <p>Break notes and tasks into checklists, and share a live link so someone else can follow along.</p>
+      <h3>Checklists, together</h3>
+      <p>Break notes and tasks into checklists, then share the item so everyone on it can check things off.</p>
     </div>
     <div class="card">
       <div class="dot"><svg viewBox="0 0 24 24"><path d="M12 21c-4.5-3.5-8-6.6-8-10.5A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 8 4.5c0 3.9-3.5 7-8 10.5z"/></svg></div>
       <h3>Private by architecture</h3>
-      <p>No account. No analytics. Your data lives on your devices and in your own private iCloud — we couldn't read it if we wanted to.</p>
+      <p>No account. No analytics. Your data lives on your devices and in your own private iCloud, and only what you choose to share or publish ever leaves it.</p>
     </div>
   </section>
 
   <section class="privacy-band">
-    <h2>Your data never meets our servers.</h2>
-    <p>The DailyDo app has no sign-up, no analytics or tracking, and no servers of its own. Everything you capture is stored on-device and synced through your personal Apple iCloud account. If you buy Pro, Apple handles the payment and RevenueCat keeps an anonymous receipt. Read the <a href="privacy.html">privacy policy</a>: it's short, because there's not much to disclose. (This website counts visits with cookieless analytics; the app counts nothing.)</p>
+    <h2>Private until you share it.</h2>
+    <p>The DailyDo app has no sign-up and no analytics or tracking. Everything you capture is stored on-device and synced through your personal Apple iCloud account. Nothing reaches anyone else unless you send it, invite someone to collaborate (shared through iCloud with just them), or publish a web page. If you buy Pro, Apple handles the payment and RevenueCat keeps an anonymous receipt. The <a href="privacy.html">privacy policy</a> spells out each case. (This website counts visits with cookieless analytics; the app counts nothing.)</p>
   </section>
 
   <!-- ============ pricing ============ -->
